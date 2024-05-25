@@ -4,3 +4,4 @@ keras==3.3.3
 tensorflow==2.16.1
 scikit-learn==1.4.2
 flask
+gunicorn==22.0.0
