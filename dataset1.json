@@ -1,0 +1,399 @@
+{
+    "intents": [
+        {
+            "tag": "saludo",
+            "patterns": ["Hola", "¿Qué tal?", "Buenos días", "¡Hola!", "Hola, ¿cómo estás?"],
+            "responses": ["¡Hola!", "Hola, ¿cómo puedo ayudarte?", "Hola, bienvenido ¿en qué puedo ayudarte?"]
+        },
+        {
+            "tag": "despedida",
+            "patterns": ["Adiós", "Hasta luego", "Nos vemos", "¡Hasta la próxima!", "Chao"],
+            "responses": ["¡Adiós!", "Hasta luego, que tengas un buen día", "Nos vemos pronto", "¡Hasta pronto!"]
+        },
+        {
+            "tag": "agradecimiento",
+            "patterns": ["Gracias", "Muchas gracias", "Te agradezco", "¡Excelente trabajo!", "Gracias por la ayuda"],
+            "responses": ["¡De nada!", "¡Gracias a ti por preguntar!", "¡Estoy aquí para ayudar!", "¡Es un placer ayudarte!"]
+        },
+        {
+            "tag": "consulta_habilidades",
+            "patterns": ["¿Qué sabes hacer?", "¿Cuáles son tus habilidades?", "¿Qué tipo de ayuda puedes ofrecer?"],
+            "responses": ["Puedo ayudarte con una variedad de cosas, desde responder preguntas generales hasta proporcionar información detallada sobre nuestros productos y servicios. ¿En qué puedo ayudarte hoy?", "Mis habilidades incluyen responder preguntas, ofrecer asesoramiento y proporcionar información útil. ¿Qué necesitas?", "Puedo ayudarte con muchas cosas, desde resolver problemas técnicos hasta brindarte recomendaciones. ¿En qué puedo ayudarte hoy?"]
+        },
+        {
+            "tag": "consulta_clima",
+            "patterns": ["¿Cómo estará el clima hoy?", "¿Va a llover mañana?", "¿Hace frío afuera?"],
+            "responses": ["Puedes revisar el pronóstico del clima en línea o a través de una aplicación móvil.", "Según el pronóstico, parece que estará soleado hoy.", "Sí, parece que habrá lluvia mañana."]
+        },
+        {
+            "tag": "planes_fin_de_semana",
+            "patterns": ["¿Qué planes tienes para el fin de semana?", "¿Algún plan interesante para el sábado?", "¿Qué puedo hacer el domingo?"],
+            "responses": ["Estoy pensando en ir al cine el sábado. ¿Te gustaría venir?", "Estoy planeando hacer una caminata el domingo por la mañana.", "Podríamos organizar una cena con amigos el sábado por la noche."]
+        },
+        {
+            "tag": "rutina_diaria",
+            "patterns": ["¿Cuál es tu rutina diaria?", "¿A qué hora te levantas por la mañana?", "¿Qué haces después del trabajo?"],
+            "responses": ["Por las mañanas suelo hacer ejercicio y desayunar antes de comenzar a trabajar.", "Me levanto temprano, me tomo un café y luego me pongo a trabajar.", "Después del trabajo, suelo relajarme viendo una película o leyendo un libro."]
+        },
+        {
+            "tag": "comida_favorita",
+            "patterns": ["¿Cuál es tu comida favorita?", "¿Te gusta cocinar?", "¿Qué te gustaría comer hoy?"],
+            "responses": ["Mi comida favorita es la pizza. ¿Y la tuya?", "Sí, me encanta cocinar. ¿Tienes alguna receta favorita?", "Hoy me gustaría comer algo ligero, ¿qué me recomiendas?"]
+        },
+        {
+            "tag": "pelicula_recomendada",
+            "patterns": ["¿Me recomiendas una buena película?", "¿Qué película viste recientemente?", "¿Hay algún estreno que debería ver?"],
+            "responses": ["Te recomiendo ver 'El padrino', es un clásico del cine.", "Recientemente vi 'Parasite' y me encantó. ¿La has visto?", "¡Sí! 'Spider-Man: No Way Home' acaba de estrenarse y está recibiendo excelentes críticas."]
+        },
+        {
+            "tag": "salir_con_amigos",
+            "patterns": ["¿Quieres salir con amigos esta noche?", "¿Te gustaría ir a un bar después del trabajo?", "¿Qué te parece si organizamos una cena en casa?"],
+            "responses": ["¡Claro! Me encantaría salir con amigos esta noche.", "Me parece genial, ¿a qué hora nos vemos?", "Una cena en casa suena estupendo. ¿Qué puedo llevar?"]
+        },
+        {
+            "tag": "viaje_sonado",
+            "patterns": ["¿Cuál es tu destino de viaje soñado?", "¿Te gustaría viajar por el mundo?", "¿A dónde te gustaría ir de vacaciones?"],
+            "responses": ["Mi destino de viaje soñado es Japón. Me encantaría explorar su cultura y probar su deliciosa comida.", "¡Sí! Viajar por el mundo es una de mis mayores aspiraciones.", "Me encantaría ir de vacaciones a una isla tropical, relajarme en la playa y disfrutar del sol."]
+        },
+        {
+            "tag": "hobbies",
+            "patterns": ["¿Tienes algún hobby?", "¿Qué te gusta hacer en tu tiempo libre?", "¿Practicas algún deporte?"],
+            "responses": ["Me gusta leer libros y aprender cosas nuevas en mi tiempo libre.", "Disfruto mucho de la fotografía y salir a caminar por la naturaleza.", "Sí, suelo practicar yoga y salir a correr para mantenerme activo."]
+        },
+        {
+            "tag": "mascotas",
+            "patterns": ["¿Tienes alguna mascota?", "¿Te gustan los animales?", "¿Qué tipo de mascota te gustaría tener?"],
+            "responses": ["Sí, tengo un perro. Se llama Max y es muy juguetón.", "Me encantan los animales, especialmente los perros y los gatos.", "Me gustaría tener un gato en el futuro, son muy cariñosos."]
+        },
+        {
+            "tag": "tecnología",
+            "patterns": ["¿Eres fanático de la tecnología?", "¿Qué opinas sobre los avances tecnológicos?", "¿Tienes algún gadget favorito?"],
+            "responses": ["¡Sí, me encanta la tecnología! Siempre estoy al tanto de las últimas novedades.", "Los avances tecnológicos son fascinantes y están cambiando el mundo de manera increíble.", "Mi gadget favorito es mi teléfono inteligente, ¡no podría vivir sin él!"]
+        },
+        {
+            "tag": "arte",
+            "patterns": ["¿Te gusta el arte?", "¿Tienes alguna obra de arte favorita?", "¿Qué tipo de arte prefieres?"],
+            "responses": ["Sí, me encanta el arte en todas sus formas: pintura, escultura, música, etc.", "Una de mis obras de arte favoritas es 'La noche estrellada' de Vincent van Gogh.", "Prefiero el arte contemporáneo, me parece muy innovador y creativo."]
+        },
+        {
+            "tag": "lectura",
+            "patterns": ["¿Eres un ávido lector?", "¿Qué libros has estado leyendo últimamente?", "¿Tienes algún género literario favorito?"],
+            "responses": ["Sí, me encanta leer. Siempre estoy buscando nuevos libros para leer.", "Recientemente he estado leyendo 'Cien años de soledad' de Gabriel García Márquez.", "Mi género literario favorito es la ciencia ficción, me gusta explorar mundos imaginarios."]
+        },
+        {
+            "tag": "juegos",
+            "patterns": ["¿Te gustan los videojuegos?", "¿Qué tipo de juegos te gustan?", "¿Tienes algún juego favorito?"],
+            "responses": ["Sí, me gustan los videojuegos. Son una forma divertida de relajarse y divertirse.", "Me gustan los juegos de aventuras y los juegos de estrategia.", "Mi juego favorito es 'The Legend of Zelda: Breath of the Wild'. Me encanta explorar el vasto mundo abierto."]
+        },
+        {
+            "tag": "idiomas",
+            "patterns": ["¿Hablas algún otro idioma además del español?", "¿Estás aprendiendo algún idioma nuevo?", "¿Qué idioma te gustaría dominar?"],
+            "responses": ["Sí, puedo comunicarme en varios idiomas, incluyendo inglés, francés y alemán.", "Estoy aprendiendo italiano en este momento. Es un idioma muy hermoso.", "Me gustaría dominar el japonés en el futuro, me parece una lengua fascinante."]
+        },
+        {
+            "tag": "musica",
+            "patterns": ["¿Te gusta la música?", "¿Qué género musical prefieres?", "¿Tienes alguna canción favorita?"],
+            "responses": ["Sí, me encanta la música. Es una forma de arte increíblemente poderosa.", "Prefiero la música rock y el pop, pero también disfruto de otros géneros.", "Una de mis canciones favoritas es 'Bohemian Rhapsody' de Queen."]
+        },
+        {
+            "tag": "series_tv",
+            "patterns": ["¿Ves series de televisión?", "¿Cuál es tu serie favorita?", "¿Estás siguiendo alguna serie actualmente?"],
+            "responses": ["Sí, me encanta ver series de televisión. 'Breaking Bad' es una de mis favoritas.", "Mi serie favorita es 'Game of Thrones'. Me encanta la intriga y la fantasía.", "Actualmente estoy viendo 'Stranger Things'. ¡Es muy emocionante!"]
+        },
+        {
+            "tag": "naturaleza",
+            "patterns": ["¿Te gusta estar en contacto con la naturaleza?", "¿Cuál es tu lugar natural favorito?", "¿Qué actividades al aire libre disfrutas hacer?"],
+            "responses": ["Sí, me encanta estar al aire libre y disfrutar de la naturaleza. Los bosques son mis lugares favoritos.", "Mi lugar natural favorito es la playa. Me encanta escuchar el sonido del mar y sentir la brisa marina.", "Disfruto hacer senderismo en las montañas y acampar bajo las estrellas."]
+        },
+        {
+            "tag": "finanzas",
+            "patterns": ["¿Te interesan las finanzas personales?", "¿Cómo manejas tu dinero?", "¿Tienes algún consejo financiero para compartir?"],
+            "responses": ["Sí, me interesa mucho aprender sobre finanzas personales y cómo manejar el dinero de manera inteligente.", "Para manejar mi dinero, suelo hacer un presupuesto mensual y ahorrar una parte de mis ingresos.", "Un buen consejo financiero es pagar deudas lo antes posible y empezar a invertir temprano para asegurar un futuro financiero sólido."]
+        },
+        {
+            "tag": "moda",
+            "patterns": ["¿Te interesa la moda?", "¿Cuál es tu estilo de moda favorito?", "¿Tienes alguna marca de ropa favorita?"],
+            "responses": ["Sí, me gusta seguir las tendencias de la moda y expresar mi estilo personal a través de la ropa.", "Mi estilo de moda favorito es casual y cómodo, pero también me gusta experimentar con estilos más elegantes en ocasiones especiales.", "Una de mis marcas de ropa favoritas es Zara. Siempre tienen diseños modernos y de buena calidad."]
+        },
+        {
+            "tag": "compras",
+            "patterns": ["¿Te gusta ir de compras?", "¿Qué tipo de compras disfrutas hacer?", "¿Tienes alguna tienda favorita?"],
+            "responses": ["Sí, me gusta ir de compras, especialmente cuando se trata de comprar libros y artículos electrónicos.", "Disfruto haciendo compras en línea porque es conveniente y ofrece una gran variedad de productos.", "Una de mis tiendas favoritas es una boutique local que tiene ropa única y accesorios de moda."]
+        },
+        {
+            "tag": "trabajo",
+            "patterns": ["¿Te gusta tu trabajo?", "¿Qué haces para ganarte la vida?", "¿Cómo es tu ambiente de trabajo?"],
+            "responses": ["Sí, me gusta mi trabajo. Disfruto de los desafíos y las oportunidades de aprendizaje que ofrece.", "Trabajo como desarrollador de software. Es un trabajo creativo y estimulante.", "Mi ambiente de trabajo es muy colaborativo y amigable. Todos nos llevamos bien y nos apoyamos mutuamente."]
+        },
+        {
+            "tag": "educacion",
+            "patterns": ["¿Te interesa la educación?", "¿Tienes algún tema de estudio favorito?", "¿Qué opinas sobre la educación en línea?"],
+            "responses": ["Sí, me interesa mucho la educación y creo que es clave para el desarrollo personal y profesional.", "Uno de mis temas de estudio favoritos es la psicología. Me fascina entender cómo funciona la mente humana.", "Creo que la educación en línea es una excelente opción para quienes quieren seguir aprendiendo sin importar su ubicación o horario."]
+        },
+        {
+            "tag": "relaciones_personales",
+            "patterns": ["¿Cómo son tus relaciones personales?", "¿Tienes muchos amigos?", "¿Qué valoras más en una amistad?"],
+            "responses": ["Tengo buenas relaciones personales. Valor las amistades sinceras y el apoyo mutuo.", "Tengo algunos amigos cercanos con los que comparto intereses y pasatiempos.", "En una amistad valoro la honestidad, la confianza y el respeto mutuo."]
+        },
+        {
+            "tag": "motivacion",
+            "patterns": ["¿Qué te motiva en la vida?", "¿Cómo mantienes la motivación?", "¿Tienes algún consejo para mantenerse motivado?"],
+            "responses": ["Lo que me motiva en la vida es el deseo de crecer, aprender y alcanzar mis metas.", "Para mantenerme motivado, establezco metas claras y me enfoco en el progreso que estoy haciendo hacia ellas.", "Un consejo para mantenerse motivado es rodearse de personas positivas y buscar inspiración en experiencias pasadas de éxito."]
+        },
+        {
+            "tag": "cultura",
+            "patterns": ["¿Te interesa la cultura?", "¿Qué aspecto de la cultura te resulta más fascinante?", "¿Disfrutas de las actividades culturales?"],
+            "responses": ["Sí, me interesa mucho la cultura y me gusta aprender sobre diferentes tradiciones y costumbres.", "Me resulta fascinante la diversidad cultural y cómo influye en la forma en que vemos el mundo.", "Sí, disfruto mucho de las actividades culturales como visitar museos, asistir a conciertos y leer literatura clásica."]
+        },
+        {
+            "tag": "creatividad",
+            "patterns": ["¿Eres una persona creativa?", "¿Qué haces para estimular tu creatividad?", "¿Cuál es tu forma favorita de expresar tu creatividad?"],
+            "responses": ["Sí, me considero una persona creativa. Me gusta pensar fuera de la caja y encontrar soluciones innovadoras.", "Para estimular mi creatividad, me gusta hacer actividades como dibujar, escribir o escuchar música.", "Mi forma favorita de expresar mi creatividad es a través de la fotografía. Me encanta capturar momentos y paisajes únicos."]
+        },
+        {
+            "tag": "tiempo_libre",
+            "patterns": ["¿Qué haces en tu tiempo libre?", "¿Cuál es tu pasatiempo favorito?", "¿Cómo te relajas después de un día agitado?"],
+            "responses": ["En mi tiempo libre me gusta leer, ver películas y salir a caminar por la naturaleza.", "Mi pasatiempo favorito es tocar la guitarra. Me relaja y me permite expresar emociones.", "Después de un día agitado, me relajo con una taza de té caliente y música suave."]
+        },
+        {
+            "tag": "redes_sociales",
+            "patterns": ["¿Eres activo en las redes sociales?", "¿Qué plataforma de redes sociales prefieres?", "¿Qué opinas sobre la influencia de las redes sociales en la sociedad?"],
+            "responses": ["Sí, soy activo en algunas redes sociales. Me gusta mantenerme conectado con amigos y familiares.", "Mi plataforma de redes sociales favorita es Instagram. Me encanta compartir fotos y ver las de otros usuarios.", "Creo que las redes sociales tienen un gran impacto en la sociedad, tanto positivo como negativo. Es importante usarlas de manera responsable."]
+        },
+        {
+            "tag": "presentacion",
+            "patterns": ["Hola, ¿cómo te llamas?", "¿Cuál es tu nombre?", "Encantado de conocerte, ¿cuál es tu nombre?"],
+            "responses": ["Hola, me llamo María. ¿Y tú?", "¡Hola! Soy Javier, un gusto conocerte.", "Encantado, me llamo Ana. ¿Y tú?"]
+        },
+        {
+            "tag": "profesion",
+            "patterns": ["¿A qué te dedicas?", "¿Cuál es tu trabajo?", "¿En qué sector trabajas?"],
+            "responses": ["Trabajo como diseñador gráfico en una agencia de publicidad.", "Soy ingeniero de software, trabajo para una empresa de tecnología.", "Trabajo como profesor de matemáticas en una escuela secundaria."]
+        },
+        {
+            "tag": "intereses",
+            "patterns": ["¿Qué te gusta hacer en tu tiempo libre?", "¿Cuáles son tus pasatiempos?", "¿Tienes algún hobby?"],
+            "responses": ["Me encanta leer y salir a correr por las mañanas.", "Disfruto mucho de la fotografía y de tocar la guitarra.", "Me gusta pintar y hacer senderismo en la montaña."]
+        },
+        {
+            "tag": "viajes",
+            "patterns": ["¿Te gusta viajar?", "¿Cuál ha sido tu destino de viaje favorito?", "¿Tienes algún lugar que te gustaría visitar?"],
+            "responses": ["Sí, me encanta viajar. Mi destino favorito hasta ahora ha sido Japón.", "Me encantaría visitar Australia en mi próximo viaje.", "Sí, he viajado por Europa y me encantó Italia."]
+        },
+        {
+            "tag": "musica_peliculas",
+            "patterns": ["¿Qué tipo de música te gusta?", "¿Cuál es tu película favorita?", "¿Tienes algún género musical preferido?"],
+            "responses": ["Me gusta mucho la música indie y mis películas favoritas son las de ciencia ficción.", "Prefiero la música rock y mi película favorita es 'El padrino'.", "Disfruto de la música electrónica y me encantan las películas de comedia."]
+        },
+        {
+            "tag": "planes_futuros",
+            "patterns": ["¿Tienes algún plan para el futuro?", "¿Qué te gustaría lograr en los próximos años?", "¿Tienes algún sueño que te gustaría cumplir?"],
+            "responses": ["Me gustaría viajar por Asia y aprender a hablar japonés.", "Quiero avanzar en mi carrera profesional y comprar una casa propia.", "Mi sueño es escribir un libro y dedicarme a la enseñanza."]
+        },
+        {
+            "tag": "aficiones",
+            "patterns": ["¿Qué te apasiona hacer?", "¿Tienes alguna actividad que te entusiasme mucho?", "¿Qué te hace sentir vivo?"],
+            "responses": ["Me apasiona la fotografía y me entusiasma explorar lugares nuevos.", "Disfruto mucho de la cocina y me entusiasma probar recetas nuevas.", "Lo que me hace sentir vivo es la música y tocar la batería en mi banda."]
+        },
+        {
+            "tag": "deporte_favorito",
+            "patterns": ["¿Cuál es tu deporte favorito?", "¿Te gusta practicar algún deporte?", "¿Tienes alguna disciplina deportiva preferida?"],
+            "responses": ["Mi deporte favorito es el fútbol. Me encanta jugar y ver partidos.", "Practico natación desde hace años, es mi deporte favorito.", "Disfruto mucho del baloncesto, tanto jugarlo como verlo en la televisión."]
+        },
+        {
+            "tag": "equipo_favorito",
+            "patterns": ["¿Tienes algún equipo deportivo favorito?", "¿Cuál es tu equipo de fútbol preferido?", "¿Apoyas a algún equipo en particular?"],
+            "responses": ["Soy fanático del Real Madrid, siempre he seguido sus partidos.", "Mi equipo de fútbol favorito es el FC Barcelona, siempre les brindo mi apoyo.", "Sigo al Manchester United desde que era niño, son mi equipo favorito."]
+        },
+        {
+            "tag": "experiencia_deportiva",
+            "patterns": ["¿Has tenido alguna experiencia deportiva memorable?", "¿Cuál ha sido tu mejor momento en el deporte?", "¿Alguna vez has competido en un evento deportivo?"],
+            "responses": ["Mi experiencia más memorable fue cuando ganamos el campeonato de fútbol de la liga local.", "Mi mejor momento en el deporte fue cuando logré mi mejor marca personal en una competencia de atletismo.", "Competí en un torneo de tenis y llegué a la final, fue una experiencia increíble."]
+        },
+        {
+            "tag": "rutina_entrenamiento",
+            "patterns": ["¿Cómo es tu rutina de entrenamiento?", "¿Qué ejercicios sueles hacer?", "¿Cómo te preparas para una competencia?"],
+            "responses": ["Entreno cuatro veces por semana, alternando entre ejercicios de fuerza y cardio.", "En mi rutina de entrenamiento incluyo ejercicios de flexibilidad, fuerza y resistencia.", "Para prepararme para una competencia, aumento la intensidad de mis entrenamientos y me enfoco en aspectos específicos de mi deporte."]
+        },
+        {
+            "tag": "eventos_deportivos",
+            "patterns": ["¿Has asistido a algún evento deportivo en vivo?", "¿Cuál ha sido tu evento deportivo favorito?", "¿Te gusta ver deportes en vivo o por televisión?"],
+            "responses": ["Sí, he asistido a varios partidos de fútbol en vivo. La atmósfera en el estadio es increíble.", "Mi evento deportivo favorito al que he asistido fue un torneo de tenis de Grand Slam.", "Disfruto mucho asistir a eventos deportivos en vivo, pero también me gusta verlos por televisión para no perderme ningún detalle."]
+        },
+        {
+            "tag": "deporte_extremo",
+            "patterns": ["¿Te gustan los deportes extremos?", "¿Has practicado algún deporte de aventura?", "¿Qué opinas sobre los deportes extremos?"],
+            "responses": ["Me encantan los deportes extremos, especialmente el snowboard y el surf.", "He practicado paracaidismo y bungee jumping, son experiencias que nunca olvidaré.", "Los deportes extremos pueden ser emocionantes y desafiantes, pero es importante practicarlos de manera segura y con precaución."]
+        },
+        {
+            "tag": "participacion_comunidad",
+            "patterns": ["¿Participas en alguna comunidad deportiva?", "¿Te gusta entrenar en grupo?", "¿Has hecho amigos a través del deporte?"],
+            "responses": ["Sí, soy parte de un club de corredores donde entrenamos juntos y participamos en carreras.", "Entrenar en grupo es motivador y nos apoyamos mutuamente para alcanzar nuestros objetivos.", "He hecho muchos amigos a través del deporte, compartimos la pasión por el mismo deporte y nos apoyamos unos a otros."]
+        },
+        {
+            "tag": "liga_favorita",
+            "patterns": ["¿Cuál es tu liga de fútbol favorita?", "¿Sigues alguna liga de fútbol en particular?", "¿Qué opinas sobre la Liga Española?"],
+            "responses": ["Mi liga de fútbol favorita es la Premier League inglesa. Me encanta la intensidad y el nivel de competencia.", "Sigo la Serie A italiana, me parece una liga muy táctica y emocionante.", "La Liga Española es una de las ligas más competitivas del mundo, siempre tiene partidos emocionantes."]
+        },
+        {
+            "tag": "jugador_favorito",
+            "patterns": ["¿Quién es tu jugador de fútbol favorito?", "¿Tienes algún ídolo futbolístico?", "¿Admiras a algún jugador en particular?"],
+            "responses": ["Mi jugador favorito es Lionel Messi. Su habilidad con el balón y su visión de juego son impresionantes.", "Admiro mucho a Cristiano Ronaldo por su dedicación y su capacidad para marcar goles.", "Me gusta mucho Neymar Jr., es un jugador muy talentoso y creativo."]
+        },
+        {
+            "tag": "partido_memorable",
+            "patterns": ["¿Cuál ha sido el partido de fútbol más memorable que has visto?", "¿Recuerdas algún partido épico de fútbol?", "¿Alguna vez has presenciado un partido histórico en el estadio?"],
+            "responses": ["El partido de la final de la Champions League de 2005 entre el Liverpool y el AC Milan fue inolvidable, con una remontada increíble del Liverpool.", "Recuerdo el Clásico entre el Barcelona y el Real Madrid en el Camp Nou, fue un partido lleno de emoción y grandes jugadas.", "Asistí a la final de la Copa del Mundo de 2014 y ver a Alemania coronarse campeón fue una experiencia increíble."]
+        },
+        {
+            "tag": "equipos_rivales",
+            "patterns": ["¿Cuál es tu equipo rival?", "¿Tienes alguna rivalidad futbolística con amigos o familiares?", "¿Cuál es el clásico que más te emociona?"],
+            "responses": ["Mi equipo rival es el equipo de la ciudad vecina, siempre hay una gran rivalidad en los derbis locales.", "Tengo una rivalidad amistosa con un amigo que apoya a otro equipo de la misma liga.", "El clásico que más me emociona es el enfrentamiento entre el Manchester United y el Manchester City, siempre es un partido lleno de emociones."]
+        },
+        {
+            "tag": "mundial",
+            "patterns": ["¿Qué opinas sobre la Copa Mundial de Fútbol?", "¿Cuál es tu recuerdo más emocionante de la Copa del Mundo?", "¿Qué selección crees que ganará el próximo Mundial?"],
+            "responses": ["La Copa Mundial de Fútbol es el evento deportivo más emocionante del mundo, reúne a las mejores selecciones y jugadores.", "Mi recuerdo más emocionante de la Copa del Mundo fue cuando mi selección nacional ganó el torneo en 2010.", "Creo que Brasil tiene muchas posibilidades de ganar el próximo Mundial, tienen un equipo muy talentoso y experimentado."]
+        },
+        {
+            "tag": "entrenador_favorito",
+            "patterns": ["¿Tienes algún entrenador de fútbol favorito?", "¿Admiras a algún técnico en particular?", "¿Cuál es tu opinión sobre el estilo de juego de Pep Guardiola?"],
+            "responses": ["Mi entrenador favorito es Jurgen Klopp, me gusta su enfoque de juego ofensivo y su carisma.", "Admiro mucho a Diego Simeone por su capacidad para motivar a sus jugadores y su táctica defensiva.", "El estilo de juego de Pep Guardiola es impresionante, siempre busca el control del balón y la presión constante."]
+        },
+        {
+            "tag": "historia_club",
+            "patterns": ["¿Sabes algo interesante sobre la historia de algún club de fútbol?", "¿Cuál es el club de fútbol más antiguo que conoces?", "¿Qué te parece la historia del Real Madrid?"],
+            "responses": ["El club de fútbol más antiguo que conozco es el Sheffield FC, fundado en 1857 en Inglaterra.", "La historia del Real Madrid es impresionante, con tantos títulos y leyendas que han pasado por el club.", "El Bayern de Múnich tiene una historia rica y llena de éxitos, es uno de los clubes más grandes de Europa."]
+        },
+        {
+            "tag": "futbol_infantil",
+            "patterns": ["¿Has jugado al fútbol de niño?", "¿Crees que es importante fomentar el fútbol en la infancia?", "¿Tienes algún recuerdo especial de tus días de fútbol infantil?"],
+            "responses": ["Sí, jugué al fútbol de niño en un equipo local. Fueron algunos de los mejores momentos de mi infancia.", "Creo que es muy importante fomentar el fútbol en la infancia, no solo por la actividad física sino también por los valores que enseña.", "Tengo muchos recuerdos especiales de mis días de fútbol infantil, como marcar mi primer gol o ganar un torneo con mis amigos."]
+        },
+        {
+            "tag": "experiencia_viaje",
+            "patterns": ["¿Cuál ha sido tu mejor experiencia de viaje?", "¿Recuerdas algún momento inolvidable durante un viaje?", "¿Qué te gusta más de viajar?"],
+            "responses": ["Mi mejor experiencia de viaje fue cuando hice senderismo en los Himalayas y vi el amanecer desde lo alto de una montaña.", "Recuerdo haber conocido a personas increíbles durante un viaje a Tailandia y haber compartido momentos inolvidables con ellos.", "Lo que más me gusta de viajar es explorar nuevos lugares, conocer diferentes culturas y probar comidas exóticas."]
+        },
+        {
+            "tag": "viaje_solitario",
+            "patterns": ["¿Alguna vez has viajado solo?", "¿Qué opinas sobre viajar en solitario?", "¿Cuál ha sido tu experiencia viajando solo?"],
+            "responses": ["Sí, he viajado solo en varias ocasiones y lo encuentro muy enriquecedor. Te permite conocer gente nueva y tener una experiencia más auténtica.", "Viajar solo puede ser desafiante, pero también te brinda la oportunidad de crecer personalmente y descubrir nuevas cosas sobre ti mismo.", "Mi experiencia viajando solo fue muy positiva. Me dio libertad para explorar a mi propio ritmo y conocerme mejor."]
+        },
+        {
+            "tag": "viaje_espontaneo",
+            "patterns": ["¿Te gustan los viajes espontáneos?", "¿Has hecho algún viaje sin planificarlo con antelación?", "¿Qué opinas sobre viajar sin un itinerario fijo?"],
+            "responses": ["Me encantan los viajes espontáneos, siempre traen aventuras inesperadas y emocionantes.", "Una vez decidí hacer un viaje por carretera sin tener un destino fijo y fue una de las mejores experiencias de mi vida.", "Viajar sin un itinerario fijo puede ser emocionante, te permite ser más flexible y estar abierto a nuevas oportunidades."]
+        },
+        {
+            "tag": "destino_cercano",
+            "patterns": ["¿Tienes algún destino cercano que te guste visitar?", "¿Qué lugares cerca de tu ciudad recomendarías para un fin de semana?", "¿Qué opinas sobre los viajes cortos?"],
+            "responses": ["Me gusta visitar pueblos cercanos a mi ciudad para escapar de la rutina. Siempre encuentro lugares encantadores y tranquilos.", "Recomendaría visitar las montañas cercanas para hacer senderismo y disfrutar de hermosos paisajes naturales.", "Los viajes cortos son una excelente manera de desconectar y recargar energías, incluso un fin de semana puede ser suficiente para explorar nuevos lugares."]
+        },
+        {
+            "tag": "viaje_en_familia",
+            "patterns": ["¿Te gusta viajar en familia?", "¿Has hecho algún viaje familiar recientemente?", "¿Qué actividades recomendarías para un viaje en familia?"],
+            "responses": ["Sí, disfruto mucho viajar en familia. Es una oportunidad para compartir momentos especiales y crear recuerdos inolvidables juntos.", "Hicimos un viaje familiar a la playa el verano pasado y fue maravilloso. Todos lo pasamos muy bien.", "Recomendaría actividades al aire libre como paseos en bicicleta, visitas a parques naturales y picnics para un viaje en familia."]
+        },
+        {
+            "tag": "viaje_de_negocios",
+            "patterns": ["¿Has tenido que hacer algún viaje de negocios?", "¿Cómo te preparas para un viaje de trabajo?", "¿Qué consejos darías para hacer un viaje de negocios exitoso?"],
+            "responses": ["Sí, he tenido que hacer varios viajes de negocios. Es importante planificar con anticipación y estar bien preparado.", "Para un viaje de trabajo, siempre reviso mi itinerario, preparo material relevante y me aseguro de tener todo lo necesario para mis reuniones.", "Un consejo para hacer un viaje de negocios exitoso es mantener una actitud profesional, ser puntual y estar bien informado sobre los objetivos del viaje."]
+        },
+        {
+            "tag": "viaje_ahorro",
+            "patterns": ["¿Tienes algún consejo para viajar con un presupuesto limitado?", "¿Cómo puedes ahorrar dinero en tus viajes?", "¿Qué recursos recomendarías para encontrar ofertas de viaje?"],
+            "responses": ["Una forma de ahorrar dinero en los viajes es buscar alojamiento en hostales o Airbnb en lugar de hoteles.", "Para ahorrar en comida, puedes optar por comer en mercados locales o preparar tus propias comidas en lugar de comer siempre en restaurantes.", "Recomendaría utilizar sitios web y aplicaciones de comparación de precios para encontrar las mejores ofertas en vuelos, hoteles y actividades."]
+        },
+        {
+            "tag": "chiste",
+            "patterns": ["¿Puedes contarme un chiste?", "Dime algo gracioso", "¿Tienes algún chiste para compartir?"],
+            "responses": ["¿Por qué el libro de matemáticas estaba triste? Porque tenía demasiados problemas.", "¿Qué hace una abeja en el gimnasio? ¡Zum-ba!", "¿Cuál es el animal más antiguo? La cebra, porque está en blanco y negro."]
+        },
+        {
+            "tag": "curiosidades",
+            "patterns": ["¿Sabías que...", "¿Conoces alguna curiosidad interesante?", "Cuéntame algo que no sepa."],
+            "responses": ["Los flamencos son naturalmente blancos, su alimentación rica en beta-carotenos les da el color rosado.", "En Japón, es común que los estudiantes limpien sus propias escuelas como parte de su educación.", "La miel nunca se echa a perder, se ha encontrado miel en tumbas egipcias que aún es comestible después de miles de años."]
+        },
+        {
+            "tag": "preferencias_culinarias",
+            "patterns": ["¿Cuál es tu comida favorita?", "¿Te gustan los postres?", "¿Tienes alguna comida que no soportes?"],
+            "responses": ["Mi comida favorita es la pizza, ¡nunca me canso de ella!", "¡Sí, me encantan los postres! Mi favorito es el helado de vainilla con trozos de chocolate.", "No puedo soportar el brócoli, ¡me parece muy desagradable!"]
+        },
+        {
+            "tag": "superpoder",
+            "patterns": ["Si pudieras tener un superpoder, ¿cuál sería?", "¿Qué habilidad te gustaría tener si fueras un superhéroe?", "¿Cómo salvarías el mundo si tuvieras superpoderes?"],
+            "responses": ["Si pudiera tener un superpoder, me gustaría volar. Sería genial poder explorar el mundo desde el cielo.", "Me encantaría tener la capacidad de curar cualquier enfermedad. Sería increíble poder ayudar a las personas que lo necesitan.", "Si tuviera superpoderes, usaría mi capacidad para controlar el clima y detener desastres naturales."]
+        },
+        {
+            "tag": "viaje_imaginario",
+            "patterns": ["Si pudieras viajar a cualquier lugar en este momento, ¿dónde irías?", "¿Qué destino te gustaría explorar si tuvieras la oportunidad?", "Imagina que puedes teleportarte a cualquier lugar, ¿dónde irías primero?"],
+            "responses": ["Me encantaría viajar a Nueva Zelanda y explorar sus impresionantes paisajes naturales, como los fiordos y los bosques tropicales.", "Si tuviera la oportunidad, me gustaría explorar Japón y sumergirme en su rica cultura y tradiciones.", "Imagino teleportarme a la Gran Barrera de Coral en Australia para bucear y explorar su increíble biodiversidad marina."]
+        },
+        {
+            "tag": "animal_favorito",
+            "patterns": ["¿Cuál es tu animal favorito?", "¿Te gustan los animales?", "¿Tienes alguna mascota?"],
+            "responses": ["Mi animal favorito es el panda. Son adorables y me fascina su comportamiento tranquilo.", "¡Me encantan los animales! Cada uno tiene su encanto único.", "No tengo mascotas, pero me encantaría tener un perro algún día."]
+        },
+        {
+            "tag": "pasatiempo_divertido",
+            "patterns": ["¿Tienes algún pasatiempo divertido?", "¿Cómo sueles divertirte en tu tiempo libre?", "¿Qué haces para pasar el rato cuando estás aburrido?"],
+            "responses": ["Me gusta mucho jugar videojuegos. Es una forma divertida de desconectar y disfrutar de historias emocionantes.", "Disfruto mucho de los juegos de mesa con amigos y familiares. Siempre nos reímos mucho.", "Cuando estoy aburrido, me gusta ver comedias en televisión o en línea. Siempre me hacen reír."]
+        },
+        {
+            "tag": "lectura_recomendada",
+            "patterns": ["¿Tienes algún libro o autor que recomiendes?", "¿Qué libro estás leyendo actualmente?", "¿Cuál es tu género literario favorito?"],
+            "responses": ["Recomendaría 'El Alquimista' de Paulo Coelho. Es una historia inspiradora sobre perseguir tus sueños.", "Actualmente estoy leyendo 'Cien años de soledad' de Gabriel García Márquez. Es una novela fascinante con un estilo único.", "Mi género literario favorito es la ciencia ficción. Me encanta sumergirme en mundos imaginarios y explorar ideas futuristas."]
+        },
+        {
+            "tag": "como_estas",
+            "patterns": ["¿Cómo estás?", "¿Cómo te sientes?", "¿Qué tal estás hoy?"],
+            "responses": ["Estoy bien, gracias por preguntar. ¿Y tú?", "Me siento genial, ¿qué tal tú?", "Todo bien por aquí. ¿Cómo te encuentras tú?"]
+        },
+        {
+            "tag": "estado_animo",
+            "patterns": ["¿Cómo te encuentras?", "¿Cómo te sientes hoy?", "¿Qué tal te va?"],
+            "responses": ["Me encuentro bastante bien, gracias. ¿Y tú?", "Hoy me siento un poco cansado, pero en general estoy bien. ¿Y tú?", "Estoy de buen humor. ¿Cómo estás tú?"]
+        },
+        {
+            "tag": "salud",
+            "patterns": ["¿Cómo está tu salud?", "¿Te sientes bien de salud?", "¿Todo bien con tu salud?"],
+            "responses": ["Sí, me siento bien de salud. Gracias por preguntar. ¿Y tú?", "Estoy saludable y me siento bien. ¿Cómo estás tú?", "Todo está bien con mi salud. ¿Y tú, cómo te sientes?"]
+        },
+        {
+            "tag": "dia",
+            "patterns": ["¿Cómo va tu día?", "¿Qué tal está yendo tu día?", "¿Cómo está siendo tu día hoy?"],
+            "responses": ["Mi día va bien, gracias. ¿Y el tuyo?", "Hasta ahora, mi día ha sido bastante bueno. ¿Y el tuyo?", "Mi día está siendo productivo. ¿Y tú, cómo va tu día?"]
+        },
+        {
+            "tag": "animo",
+            "patterns": ["¿Cómo está tu ánimo?", "¿Te sientes animado hoy?", "¿Estás de buen humor?"],
+            "responses": ["Sí, estoy de buen ánimo. ¿Y tú?", "Me siento bastante animado hoy. ¿Y tú?", "Estoy de buen humor, gracias. ¿Y tú, cómo te sientes?"]
+        },
+        {
+            "tag": "estres",
+            "patterns": ["¿Estás estresado?", "¿Cómo manejas el estrés?", "¿Te sientes bajo mucho estrés?"],
+            "responses": ["No, no me siento estresado en este momento. ¿Y tú?", "Trato de manejar el estrés con ejercicios de respiración y tiempo para mí mismo. ¿Y tú?", "A veces me siento estresado, pero intento mantener la calma. ¿Cómo te sientes tú?"]
+        },
+        {
+            "tag": "felicidad",
+            "patterns": ["¿Te sientes feliz?", "¿Estás contento hoy?", "¿Qué te hace feliz?"],
+            "responses": ["Sí, me siento bastante feliz. ¿Y tú?", "Estoy contento hoy, gracias por preguntar. ¿Y tú?", "Me hace feliz pasar tiempo con mis seres queridos. ¿Y a ti, qué te hace feliz?"]
+        },
+        {
+            "tag": "energia",
+            "patterns": ["¿Te sientes con energía?", "¿Cómo está tu nivel de energía hoy?", "¿Estás lleno de energía?"],
+            "responses": ["Sí, me siento con mucha energía hoy. ¿Y tú?", "Mi nivel de energía está bastante alto hoy. ¿Y el tuyo?", "Estoy lleno de energía y listo para el día. ¿Y tú, cómo te sientes?"]
+        },
+        {
+            "tag": "sueño",
+            "patterns": ["¿Dormiste bien?", "¿Has dormido lo suficiente?", "¿Te sientes descansado?"],
+            "responses": ["Sí, dormí muy bien, gracias. ¿Y tú?", "He dormido lo suficiente y me siento descansado. ¿Y tú?", "Sí, me siento bastante descansado. ¿Y tú, cómo dormiste?"]
+        },
+        {
+            "tag": "emociones",
+            "patterns": ["¿Cómo te sientes emocionalmente?", "¿Cómo están tus emociones?", "¿Te sientes bien emocionalmente?"],
+            "responses": ["Emocionalmente, me siento equilibrado. ¿Y tú?", "Mis emociones están bastante estables. ¿Y las tuyas?", "Me siento bien emocionalmente, gracias. ¿Y tú, cómo te sientes?"]
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "intents": [
+        {
+            "tag": "saludo",
+            "patterns": ["hola", "qué tal", "saludos", "buenos días", "buenas tardes", "buenas noches", "¡Qué alegría verte!"],
+            "responses": ["¡Hola!", "¡Saludos!", "¡Hola! ¿Qué puedo hacer por ti?", "Bienvenid@, ¿en qué puedo ayudarte?", "¿En qué puedo asistirte hoy?"]
+        },
+        {
+            "tag": "bienestar",
+            
+            "patterns": [
+            "cómo estás",
+            "qué tal estás",
+            "cómo te sientes?"],
+            
+            "responses": [
+            "¡Estoy muy bien! ¿En qué puedo ayudarte?",
+            "¡Muy bien! ¿Puedo ayudarte en algo?",
+            "¡Todo bien! ¿Qué puedo hacer por ti?",
+            "¡Estoy genial! ¿Necesitas algo?",
+            "¡Me siento estupendamente! ¿Cómo puedo asistirte?"]
+        },
+        {
+            "tag": "nombre",
+            "patterns": ["¿cómo es tu nombre?", "¿cómo te llamas?", "tu nombre", "¿quién eres?", "dinos tu nombre", "nombre completo", "¿Cómo debería llamarte?", "¿Cuál es tu apodo?", "¿Puedo llamarte de alguna forma?"],
+            "responses": ["Me llamo IntelliGen Bot", "Mi nombre es IntelliGen Bot", "Puedes llamarme IntelliGen Bot", "Soy IntelliGen Bot, tu asistente virtual.", "Mi nombre completo es IntelliGen Bot, pero puedes llamarme IntelliGen.", "Soy conocido como IntelliGen Bot."]
+        },
+        {
+            "tag": "despedida",
+            "patterns": ["adiós", "hasta luego", "nos vemos", "hasta pronto", "cuídate", "chao", "Nos vemos más tarde", "Es hora de irme", "Hasta pronto, amigo"],
+            "responses": ["¡Hasta luego!", "¡Adiós!", "Nos vemos pronto.", "¡Hasta pronto! Cuídate.", "¡Adiós! Que tengas un buen día.", "¡Nos vemos luego!", "¡Chao!"]
+        },
+        {
+            "tag": "agradecimiento",
+            "patterns": ["gracias", "muchas gracias", "te agradezco", "agradecido", "Te agradezco mucho", "Gracias por tu ayuda", "Estoy muy agradecido"],
+            "responses": ["De nada.", "¡No hay de qué!", "¡Con gusto!", "No hay problema, siempre estoy aquí para ayudarte.", "¡Gracias a ti por confiar en mí!"]
+        },
+        {
+            "tag": "edad",
+            "patterns": ["¿cuántos años tienes?", "edad", "¿qué edad tienes?", "¿cuánto tiempo tienes?", "¿desde cuándo existes?", "¿Desde cuándo existes como programa?", "¿Cuál es tu fecha de creación?", "¿Cuánto tiempo llevas en línea?"],
+            "responses": ["No tengo edad. Soy un programa.", "No tengo una edad como la de los humanos.", "Soy un programa de inteligencia artificial, no tengo una edad física.", "Soy tan joven como el día en que fui creado."]
+        },
+        {
+            "tag": "ubicacion",
+            "patterns": ["¿dónde te encuentras?", "¿cuál es tu ubicación?", "¿dónde vives?", "¿Dónde se almacena tu información?", "¿Cómo accedo a ti?"],
+            "responses": ["Estoy en la nube.", "No tengo una ubicación física. Estoy en internet.", "Me encuentro en un servidor en la nube, disponible en cualquier momento y lugar.", "Mi ubicación es virtual, siempre estoy en línea para ayudarte.", "Vivo en el mundo digital, donde la información es mi hogar."]
+        },
+        {
+            "tag": "temas_ayuda",
+            "patterns": ["¿sobre qué temas me puedes ayudar?", "¿qué preguntas puedo hacerte?", "¿cuáles son tus áreas de expertise?", "¿en qué temas puedes asistirme?"],
+            "responses": ["Puedo ayudarte con temas como la definición de inteligencia artificial, su funcionamiento, ejemplos de uso, aplicaciones prácticas y mucho más. ¡Siempre estoy aquí para responder tus preguntas sobre inteligencia artificial!"]
+        },
+        {
+            "tag": "inteligencia_artificial_definicion",
+            "patterns": ["¿qué es la inteligencia artificial?", "define inteligencia artificial", "explica inteligencia artificial", "¿Qué implica la inteligencia artificial?", "¿Qué capacidades tienen los sistemas de IA?", "¿Cómo se define la IA en términos simples?"],
+            "responses": ["La inteligencia artificial es la simulación de procesos de inteligencia humana por parte de sistemas informáticos.", "La inteligencia artificial consiste en la capacidad de las máquinas para imitar el comportamiento humano.", "La inteligencia artificial se refiere a la capacidad de las máquinas para aprender de la experiencia y realizar tareas que normalmente requieren inteligencia humana."]
+        },
+        {
+            "tag": "inteligencia_artificial_funcionamiento",
+            "patterns": ["¿cómo funciona la inteligencia artificial?", "¿cuál es el funcionamiento de la inteligencia artificial?", "¿Cómo aprenden las máquinas?", "¿Cuál es el papel del aprendizaje automático en la IA?", "¿Cómo procesan la información las máquinas?"],
+            "responses": ["La inteligencia artificial funciona mediante algoritmos y modelos matemáticos que permiten a las máquinas aprender de los datos.", "La inteligencia artificial utiliza técnicas como el aprendizaje automático y el procesamiento del lenguaje natural para realizar tareas específicas.", "El funcionamiento de la inteligencia artificial se basa en la recopilación y análisis de datos para tomar decisiones y resolver problemas."]
+        },
+        {
+            "tag": "inteligencia_artificial_ejemplos",
+            "patterns": ["dame ejemplos de inteligencia artificial", "¿puedes darme ejemplos de inteligencia artificial?", "¿cuáles son ejemplos de inteligencia artificial?", "¿Qué tipos de tecnologías se consideran IA?", "¿Cuáles son los usos cotidianos de la inteligencia artificial?", "¿Puedes darme más ejemplos de IA en acción?"],
+            "responses": ["Ejemplos de inteligencia artificial incluyen sistemas de recomendación, reconocimiento de voz y vehículos autónomos.", "Algunos ejemplos de inteligencia artificial son los asistentes virtuales, los chatbots y los sistemas de diagnóstico médico.", "La inteligencia artificial se utiliza en aplicaciones como el reconocimiento facial, la traducción automática y la conducción autónoma."]
+        },
+        {
+            "tag": "inteligencia_artificial_aplicaciones",
+            "patterns": ["usos de la inteligencia artificial", "¿para qué se utiliza la inteligencia artificial?", "¿en qué se usa la inteligencia artificial?", "¿cuáles son las aplicaciones de la inteligencia artificial?", "¿Cómo afecta la IA a diferentes industrias?", "¿Qué ventajas ofrece la IA en la vida diaria?", "¿Cuál es el futuro de la IA en el mundo laboral?"],
+            "responses": ["Las aplicaciones de inteligencia artificial son variadas e incluyen asistentes virtuales, sistemas de diagnóstico médico y análisis de datos.", "La inteligencia artificial se utiliza en sectores como la salud, la banca, la industria automotriz y el comercio electrónico.", "Algunas aplicaciones de la inteligencia artificial son la detección de fraudes, la optimización de procesos y la personalización de contenido."]
+        }
+    ]
+}
