@@ -1,5 +1,3 @@
-from flask import Flask, request, render_template, jsonify
-from flask_executor import Executor
 import json
 import nltk
 from nltk.tokenize import word_tokenize
@@ -11,14 +9,11 @@ import numpy as np
 import random
 import re
 import unicodedata
+from flask import Flask, request, render_template, jsonify
 from sklearn.preprocessing import LabelEncoder
 import logging
-import time
-import os
-import psutil
 
 app = Flask(__name__)
-executor = Executor(app)
 
 # Configuración de logs
 logging.basicConfig(level=logging.DEBUG)
@@ -64,21 +59,17 @@ def tokenize_and_lemmatize(text):
     return ' '.join(lemmatized_tokens)
 
 def intent_detection(user_input):
-    logging.debug("Starting intent detection")
-    start_time = time.time()
     tokenized_input = tokenize_and_lemmatize(user_input)
+    logging.debug(f"Tokenized input: {tokenized_input}")  # Debugging
     input_seq = tokenizer.texts_to_sequences([tokenized_input])
     input_seq = pad_sequences(input_seq, maxlen=max_length)
-    logging.debug("Input sequence prepared")
+    logging.debug(f"Input sequence: {input_seq}")  # Debugging
     prediction = model.predict(input_seq)
-    logging.debug("Model prediction completed")
+    logging.debug(f"Prediction: {prediction}")  # Debugging
     encoded_response = np.argmax(prediction)
     response = label_encoder.inverse_transform([encoded_response])[0]
     score = prediction[0][encoded_response]
-    end_time = time.time()
-    logging.debug(f"Response: {response}, Score: {score}")
-    logging.debug(f"Intent detection time: {end_time - start_time} seconds")
-    return response, score
+    return [response], [score]
 
 def remove_accents_and_symbols(text):
     text = unicodedata.normalize('NFD', text)
@@ -122,16 +113,18 @@ def respond_to_user(user_input, intents):
     elif any(neg_word in user_input_clean for neg_word in palabras_mal):
         return random.choice(respuestas_mal), "mal", 1.0
 
-    response, score = intent_detection(user_input)
+    top_intents, top_scores = intent_detection(user_input)
+    for intent, score in zip(top_intents, top_scores):
+        logging.debug(f"Detected intent: {intent} with score: {score}")
+
     threshold = 0.9
-    if score < threshold:
-        return 'No entiendo. ¿Puedes reformular la pregunta?', "confusion", score
-
-    for intent in intents['intents']:
-        if intent['tag'] == response:
-            return random.choice(intent['responses']), response, score
-
-    return "Lo siento, no entiendo lo que dices.", "unknown", 1.0
+    if top_scores[0] < threshold:
+        return 'No entiendo. ¿Puedes reformular la pregunta?', top_intents[0], top_scores[0]
+    for intent_obj in intents['intents']:
+        if intent_obj['tag'] == top_intents[0]:
+            responses = intent_obj['responses']
+            return random.choice(responses), top_intents[0], top_scores[0]
+    return 'No entiendo. ¿Puedes reformular la pregunta?', top_intents[0], top_scores[0]
 
 @app.route('/')
 def index():
@@ -139,11 +132,21 @@ def index():
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    user_input = request.json['user_input']
-    future = executor.submit(respond_to_user, user_input, intents)
-    response, intent, score = future.result()
-    return jsonify({'response': response, 'intent': intent, 'score': score})
+    try:
+        logging.debug("Ruta /chat llamada")
+        data = request.get_json()
+        logging.debug(f"Solicitud JSON: {data}")
+        user_input = data.get('message')
+        if not user_input:
+            logging.error("user_input no proporcionado en el JSON")
+            return jsonify({'error': 'user_input no proporcionado'}), 400
+
+        response, intent, score = respond_to_user(user_input, intents)
+        logging.debug(f"Respuesta: {response}, Intent: {intent}, Score: {score}")
+        return jsonify({"response": str(response), "intent": str(intent), "score": float(score)})
+    except Exception as e:
+        logging.error(f"Error handling request: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
-
