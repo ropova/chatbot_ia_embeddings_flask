@@ -1,3 +1,5 @@
+from flask import Flask, request, render_template, jsonify
+from flask_executor import Executor
 import json
 import nltk
 from nltk.tokenize import word_tokenize
@@ -9,11 +11,15 @@ import numpy as np
 import random
 import re
 import unicodedata
-from flask import Flask, request, render_template, jsonify
 from sklearn.preprocessing import LabelEncoder
-
+import logging  # Importación adicional para logs
+import time  # Importación adicional para medir el tiempo
 
 app = Flask(__name__)
+executor = Executor(app)
+
+# Configuración de logs
+logging.basicConfig(level=logging.DEBUG)
 
 # Descargar los recursos de NLTK necesarios
 nltk.download('punkt')
@@ -55,16 +61,19 @@ def tokenize_and_lemmatize(text):
     lemmatized_tokens = [lemmatizer.lemmatize(token) for token in tokens if token.isalpha()]
     return ' '.join(lemmatized_tokens)
 
-# Función para detectar la intención del usuario utilizando la red neuronal
 def intent_detection(user_input):
+    logging.debug("Starting intent detection")
     tokenized_input = tokenize_and_lemmatize(user_input)
     input_seq = tokenizer.texts_to_sequences([tokenized_input])
     input_seq = pad_sequences(input_seq, maxlen=max_length)
+    logging.debug("Input sequence prepared")
     prediction = model.predict(input_seq)
+    logging.debug("Model prediction completed")
     encoded_response = np.argmax(prediction)
     response = label_encoder.inverse_transform([encoded_response])[0]
     score = prediction[0][encoded_response]
-    return [response], [score]
+    logging.debug(f"Response: {response}, Score: {score}")
+    return response, score
 
 def remove_accents_and_symbols(text):
     text = unicodedata.normalize('NFD', text)
@@ -91,40 +100,34 @@ respuestas_mal = ["Lamento escuchar eso. ¿En qué puedo ayudarte?",
                 "Lo siento mucho por eso. ¿Puedo hacer algo para ayudar a mejorar tu día?",
                 "Qué pena escuchar eso. ¿Cómo puedo brindarte apoyo en este momento?"]
 
-
 def respond_to_user(user_input, intents):
     user_input_lower = user_input.lower()
     user_input_clean = remove_accents_and_symbols(user_input_lower)
 
-    # Manejar el saludo inicial
     if "hola" in user_input_clean:
         return random.choice(respuestas_saludo), "saludo", 1.0
 
-    # Verificar si el usuario respondió "sí" o "no"
     if user_input_clean == "si":
         return "¿En qué puedo ayudarte?", "respuesta_si", 1.0
     elif user_input_clean == "no":
         return "Espero verte pronto.", "respuesta_no", 1.0
 
-    # Procesar la entrada del usuario como de costumbre
     if any(palabra in user_input_clean for palabra in palabras_bien) and not any(neg_word in user_input_clean for neg_word in palabras_mal):
         return random.choice(respuestas_bien), "bien", 1.0
     elif any(neg_word in user_input_clean for neg_word in palabras_mal):
         return random.choice(respuestas_mal), "mal", 1.0
 
-    top_intents, top_scores = intent_detection(user_input)
-    for intent, score in zip(top_intents, top_scores):
-        print(f"Detected intent: {intent} with score: {score}")
-
+    response, score = intent_detection(user_input)
     threshold = 0.9
-    if top_scores[0] < threshold:
-        return 'No entiendo. ¿Puedes reformular la pregunta?', top_intents[0], top_scores[0]
-    for intent_obj in intents['intents']:
-        if intent_obj['tag'] == top_intents[0]:
-            responses = intent_obj['responses']
-            return random.choice(responses), top_intents[0], top_scores[0]
-    return 'No entiendo. ¿Puedes reformular la pregunta?', top_intents[0], top_scores[0]
+    if score < threshold:
+        return 'No entiendo. ¿Puedes reformular la pregunta?', response, score
 
+    for intent_obj in intents['intents']:
+        if intent_obj['tag'] == response:
+            responses = intent_obj['responses']
+            return random.choice(responses), response, score
+    
+    return 'No entiendo. ¿Puedes reformular la pregunta?', response, score
 
 @app.route('/')
 def index():
@@ -133,8 +136,32 @@ def index():
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.json.get('message')
-    response, intent, score = respond_to_user(user_input, intents)
+    future = executor.submit(respond_to_user, user_input, intents)
+    response, intent, score = future.result()
     return jsonify({"response": str(response), "intent": str(intent), "score": float(score)})
 
+@app.route('/health')
+def health_check():
+    return jsonify({"status": "ok"}), 200
+
+@app.route('/test_model')
+def test_model():
+    try:
+        response, score = intent_detection("Test input")
+        return jsonify({"response": response, "score": score}), 200
+    except Exception as e:
+        logging.error(f"Model test failed: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == '__main__':
+    # Ejecución de la aplicación Flask
     app.run(debug=True)
+
+    # Prueba del tiempo de predicción
+    test_input = "¿Qué puedes hacer por mí?"
+    start_time = time.time()
+    response, score = intent_detection(test_input)
+    end_time = time.time()
+
+    print(f"Predicción: {response}, Score: {score}")
+    print(f"Tiempo de predicción: {end_time - start_time} segundos")
