@@ -123,14 +123,13 @@ def respond_to_user(user_input, intents):
     response, score = intent_detection(user_input)
     threshold = 0.9
     if score < threshold:
-        return 'No entiendo. ¿Puedes reformular la pregunta?', response, score
+        return 'No entiendo. ¿Puedes reformular la pregunta?', "confusion", score
 
-    for intent_obj in intents['intents']:
-        if intent_obj['tag'] == response:
-            responses = intent_obj['responses']
-            return random.choice(responses), response, score
-    
-    return 'No entiendo. ¿Puedes reformular la pregunta?', response, score
+    for intent in intents['intents']:
+        if intent['tag'] == response:
+            return random.choice(intent['responses']), response, score
+
+    return "Lo siento, no entiendo lo que dices.", "unknown", 1.0
 
 @app.route('/')
 def index():
@@ -138,26 +137,10 @@ def index():
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    user_input = request.json.get('message')
-    start_time = time.time()
+    user_input = request.json['user_input']
     future = executor.submit(respond_to_user, user_input, intents)
     response, intent, score = future.result()
-    end_time = time.time()
-    logging.debug(f"Total chat handling time: {end_time - start_time} seconds")
-    return jsonify({"response": str(response), "intent": str(intent), "score": float(score)})
-
-@app.route('/health')
-def health_check():
-    return jsonify({"status": "ok"}), 200
-
-@app.route('/test_model')
-def test_model():
-    try:
-        response, score = intent_detection("Test input")
-        return jsonify({"response": response, "score": score}), 200
-    except Exception as e:
-        logging.error(f"Model test failed: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+    return jsonify({'response': response, 'intent': intent, 'score': score})
 
 if __name__ == '__main__':
     app.run(debug=True)
