@@ -12,6 +12,7 @@ import re
 import unicodedata
 from flask import Flask, request, render_template, jsonify
 from sklearn.preprocessing import LabelEncoder
+import asyncio
 
 app = Flask(__name__)
 
@@ -56,11 +57,14 @@ def tokenize_and_lemmatize(text):
     return ' '.join(lemmatized_tokens)
 
 # Función para detectar la intención del usuario utilizando la red neuronal
-def intent_detection(user_input):
+async def intent_detection(user_input):
     tokenized_input = tokenize_and_lemmatize(user_input)
+    print(f"Tokenized input: {tokenized_input}")  # Debugging
     input_seq = tokenizer.texts_to_sequences([tokenized_input])
     input_seq = pad_sequences(input_seq, maxlen=max_length)
+    print(f"Input sequence: {input_seq}")  # Debugging
     prediction = model.predict(input_seq)
+    print(f"Prediction: {prediction}")  # Debugging
     encoded_response = np.argmax(prediction)
     response = label_encoder.inverse_transform([encoded_response])[0]
     score = prediction[0][encoded_response]
@@ -129,11 +133,11 @@ def index():
     return render_template('index.html')
 
 @app.route('/chat', methods=['POST'])
-async def chat():
+def chat():
     print("Ruta /chat llamada")
     user_input = request.json.get('message')
     print("Solicitud JSON:", request.json)
-    response, intent, score = await respond_to_user(user_input, intents)  # Await respond_to_user function
+    response, intent, score = asyncio.run(respond_to_user(user_input, intents))  # Use asyncio.run() to run the function asynchronously
     print("Respuesta:", response)
     print("Intent:", intent)
     print("Score:", score)
