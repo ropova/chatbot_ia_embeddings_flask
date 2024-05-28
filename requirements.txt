@@ -3,5 +3,6 @@ nltk==3.8.1
 keras==3.3.3
 tensorflow==2.16.1
 scikit-learn==1.4.2
-flask
+Flask==3.0.3
 gunicorn==22.0.0
+flask_executor==1.0.0
