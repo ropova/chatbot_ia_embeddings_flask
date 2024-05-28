@@ -95,7 +95,8 @@ respuestas_mal = ["Lamento escuchar eso. ¿En qué puedo ayudarte?",
                 "Lo siento mucho por eso. ¿Puedo hacer algo para ayudar a mejorar tu día?",
                 "Qué pena escuchar eso. ¿Cómo puedo brindarte apoyo en este momento?"]
 
-def respond_to_user(user_input, intents):
+# Función para responder al usuario
+async def respond_to_user(user_input, intents):
     user_input_lower = user_input.lower()
     user_input_clean = remove_accents_and_symbols(user_input_lower)
 
