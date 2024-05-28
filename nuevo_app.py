@@ -12,8 +12,8 @@ import random
 import re
 import unicodedata
 from sklearn.preprocessing import LabelEncoder
-import logging  # Importación adicional para logs
-import time  # Importación adicional para medir el tiempo
+import logging
+import time
 
 app = Flask(__name__)
 executor = Executor(app)
@@ -63,6 +63,7 @@ def tokenize_and_lemmatize(text):
 
 def intent_detection(user_input):
     logging.debug("Starting intent detection")
+    start_time = time.time()
     tokenized_input = tokenize_and_lemmatize(user_input)
     input_seq = tokenizer.texts_to_sequences([tokenized_input])
     input_seq = pad_sequences(input_seq, maxlen=max_length)
@@ -72,7 +73,9 @@ def intent_detection(user_input):
     encoded_response = np.argmax(prediction)
     response = label_encoder.inverse_transform([encoded_response])[0]
     score = prediction[0][encoded_response]
+    end_time = time.time()
     logging.debug(f"Response: {response}, Score: {score}")
+    logging.debug(f"Intent detection time: {end_time - start_time} seconds")
     return response, score
 
 def remove_accents_and_symbols(text):
@@ -136,8 +139,11 @@ def index():
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.json.get('message')
+    start_time = time.time()
     future = executor.submit(respond_to_user, user_input, intents)
     response, intent, score = future.result()
+    end_time = time.time()
+    logging.debug(f"Total chat handling time: {end_time - start_time} seconds")
     return jsonify({"response": str(response), "intent": str(intent), "score": float(score)})
 
 @app.route('/health')
@@ -154,14 +160,4 @@ def test_model():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    # Ejecución de la aplicación Flask
     app.run(debug=True)
-
-    # Prueba del tiempo de predicción
-    test_input = "¿Qué puedes hacer por mí?"
-    start_time = time.time()
-    response, score = intent_detection(test_input)
-    end_time = time.time()
-
-    print(f"Predicción: {response}, Score: {score}")
-    print(f"Tiempo de predicción: {end_time - start_time} segundos")
