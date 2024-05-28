@@ -7,3 +7,4 @@ Flask==3.0.3
 gunicorn==22.0.0
 flask_executor==1.0.0
 psutil==5.9.8
+gevent==24.2.1
