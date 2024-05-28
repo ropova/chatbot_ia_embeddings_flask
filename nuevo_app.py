@@ -14,6 +14,8 @@ import unicodedata
 from sklearn.preprocessing import LabelEncoder
 import logging
 import time
+import os
+import psutil
 
 app = Flask(__name__)
 executor = Executor(app)
@@ -144,3 +146,4 @@ def chat():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
