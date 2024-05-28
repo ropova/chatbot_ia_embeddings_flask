@@ -1,4 +1,3 @@
-from gevent.pywsgi import WSGIServer
 import json
 import nltk
 from nltk.tokenize import word_tokenize
@@ -12,7 +11,7 @@ import re
 import unicodedata
 from flask import Flask, request, render_template, jsonify
 from sklearn.preprocessing import LabelEncoder
-import asyncio
+
 
 app = Flask(__name__)
 
@@ -57,7 +56,7 @@ def tokenize_and_lemmatize(text):
     return ' '.join(lemmatized_tokens)
 
 # Función para detectar la intención del usuario utilizando la red neuronal
-async def intent_detection(user_input):
+def intent_detection(user_input):
     tokenized_input = tokenize_and_lemmatize(user_input)
     print(f"Tokenized input: {tokenized_input}")  # Debugging
     input_seq = tokenizer.texts_to_sequences([tokenized_input])
@@ -95,8 +94,8 @@ respuestas_mal = ["Lamento escuchar eso. ¿En qué puedo ayudarte?",
                 "Lo siento mucho por eso. ¿Puedo hacer algo para ayudar a mejorar tu día?",
                 "Qué pena escuchar eso. ¿Cómo puedo brindarte apoyo en este momento?"]
 
-# Función para responder al usuario
-async def respond_to_user(user_input, intents):
+
+def respond_to_user(user_input, intents):
     user_input_lower = user_input.lower()
     user_input_clean = remove_accents_and_symbols(user_input_lower)
 
@@ -116,7 +115,7 @@ async def respond_to_user(user_input, intents):
     elif any(neg_word in user_input_clean for neg_word in palabras_mal):
         return random.choice(respuestas_mal), "mal", 1.0
 
-    top_intents, top_scores = await intent_detection(user_input)  # Await intent_detection function
+    top_intents, top_scores = intent_detection(user_input)
     for intent, score in zip(top_intents, top_scores):
         print(f"Detected intent: {intent} with score: {score}")
 
@@ -129,6 +128,7 @@ async def respond_to_user(user_input, intents):
             return random.choice(responses), top_intents[0], top_scores[0]
     return 'No entiendo. ¿Puedes reformular la pregunta?', top_intents[0], top_scores[0]
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -138,7 +138,7 @@ def chat():
     print("Ruta /chat llamada")
     user_input = request.json.get('message')
     print("Solicitud JSON:", request.json)
-    response, intent, score = asyncio.run(respond_to_user(user_input, intents))  # Use asyncio.run() to run the function asynchronously
+    response, intent, score = respond_to_user(user_input, intents)
     print("Respuesta:", response)
     print("Intent:", intent)
     print("Score:", score)
